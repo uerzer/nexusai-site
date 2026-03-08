@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusAI Solutions - AI Automation for Local Businesses</title>
+    <meta name="description" content="Stop losing customers. NexusAI deploys AI receptionists, review automation, and lead nurturing for dental, HVAC, and real estate businesses.">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+
+        /* Nav */
+        nav { background: var(--white); padding: 16px 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo span { color: var(--dark); }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--gray); font-weight: 500; font-size: 14px; }
+        .nav-links a:hover { color: var(--dark); }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 15px; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: var(--white); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        .btn-accent { background: var(--accent); color: var(--white); }
+        .btn-accent:hover { background: #059669; }
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: var(--white); padding: 100px 0 80px; text-align: center; }
+        .hero h1 { font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 20px; color: #94a3b8; max-width: 600px; margin: 0 auto 32px; }
+        .hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 48px; }
+        .hero-stats div { text-align: center; }
+        .hero-stats .num { font-size: 36px; font-weight: 800; color: var(--accent); }
+        .hero-stats .label { font-size: 14px; color: #94a3b8; }
+
+        /* Problems */
+        .problems { padding: 80px 0; background: var(--light); }
+        .section-title { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+        .section-subtitle { text-align: center; color: var(--gray); font-size: 18px; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .problem-card { background: var(--white); border-radius: 12px; padding: 32px; border-left: 4px solid #ef4444; }
+        .problem-card h3 { font-size: 20px; margin-bottom: 8px; }
+        .problem-card p { color: var(--gray); font-size: 15px; }
+        .problem-icon { font-size: 32px; margin-bottom: 12px; }
+
+        /* Solutions */
+        .solutions { padding: 80px 0; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .solution-card { background: var(--white); border-radius: 16px; padding: 36px; border: 2px solid #e2e8f0; transition: all 0.3s; }
+        .solution-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(37,99,235,0.12); }
+        .solution-card.featured { border-color: var(--primary); position: relative; }
+        .solution-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+        .solution-card h3 { font-size: 22px; margin-bottom: 8px; }
+        .solution-card .price { font-size: 36px; font-weight: 800; color: var(--primary); margin: 16px 0; }
+        .solution-card .price span { font-size: 16px; color: var(--gray); font-weight: 400; }
+        .solution-card ul { list-style: none; margin: 20px 0; }
+        .solution-card ul li { padding: 8px 0; font-size: 15px; color: var(--gray); }
+        .solution-card ul li::before { content: '\2713'; color: var(--accent); font-weight: 700; margin-right: 10px; }
+
+        /* Testimonials */
+        .testimonials { padding: 80px 0; background: var(--light); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .testimonial-card { background: var(--white); border-radius: 12px; padding: 32px; }
+        .testimonial-card .stars { color: #f59e0b; font-size: 18px; margin-bottom: 12px; }
+        .testimonial-card blockquote { font-size: 15px; color: var(--gray); font-style: italic; margin-bottom: 16px; line-height: 1.7; }
+        .testimonial-card .author { font-weight: 700; font-size: 14px; }
+        .testimonial-card .role { font-size: 13px; color: var(--gray); }
+
+        /* FAQ */
+        .faq { padding: 80px 0; }
+        .faq-item { border-bottom: 1px solid #e2e8f0; padding: 20px 0; }
+        .faq-item h3 { font-size: 17px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item h3::after { content: '+'; font-size: 24px; color: var(--primary); }
+        .faq-item.open h3::after { content: '-'; }
+        .faq-item p { display: none; color: var(--gray); font-size: 15px; margin-top: 12px; line-height: 1.7; }
+        .faq-item.open p { display: block; }
+
+        /* CTA */
+        .cta { padding: 80px 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); text-align: center; }
+        .cta h2 { font-size: 36px; margin-bottom: 16px; }
+        .cta p { font-size: 18px; opacity: 0.9; margin-bottom: 32px; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #94a3b8; padding: 40px 0; text-align: center; font-size: 14px; }
+        footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .nav-links { display: none; }
+            .solutions-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Nexus<span>AI</span></a>
+            <div class="nav-links">
+                <a href="#problems">Problems</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#testimonials">Results</a>
+                <a href="#faq">FAQ</a>
+                <a href="#book" class="btn btn-primary">Book Free Audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Stop Losing Customers to Businesses That <span>Use AI</span></h1>
+            <p>We deploy AI receptionists, review automation, and lead nurturing systems for local businesses -- done-for-you in 48 hours.</p>
+            <a href="#book" class="btn btn-accent" style="font-size:18px; padding:16px 40px;">Book Your Free AI Audit</a>
+            <div class="hero-stats">
+                <div><div class="num">47%</div><div class="label">Calls go unanswered<br>by local businesses</div></div>
+                <div><div class="num">3.2x</div><div class="label">More bookings with<br>AI follow-up</div></div>
+                <div><div class="num">48hr</div><div class="label">Setup time for<br>full deployment</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2 class="section-title">Your Business Is Bleeding Revenue</h2>
+            <p class="section-subtitle">These 3 problems cost the average local business $50,000+ per year in lost revenue.</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">&#128222;</div>
+                    <h3>Missed Calls = Missed Revenue</h3>
+                    <p>47% of calls to local businesses go unanswered. Every missed call is a patient, customer, or lead going straight to your competitor.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">&#9200;</div>
+                    <h3>Manual Follow-Ups Drain Your Team</h3>
+                    <p>Your staff spends hours on confirmation calls, review requests, and lead follow-ups instead of serving customers.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">&#128640;</div>
+                    <h3>Competitors Are Already Using AI</h3>
+                    <p>The practice down the street has 24/7 AI answering, instant follow-ups, and 5-star reviews on autopilot. You are falling behind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <h2 class="section-title">AI That Works While You Sleep</h2>
+            <p class="section-subtitle">Three done-for-you systems deployed in 48 hours. No tech skills required.</p>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <h3>AI Receptionist</h3>
+                    <div class="price">$497<span>/mo</span></div>
+                    <ul>
+                        <li>24/7 AI call answering</li>
+                        <li>Appointment booking in real-time</li>
+                        <li>Missed call text-back in under 60s</li>
+                        <li>Call summaries to your inbox</li>
+                        <li>Custom trained on your business</li>
+                    </ul>
+                    <a href="#book" class="btn btn-outline" style="width:100%; text-align:center;">Get Started</a>
+                </div>
+                <div class="solution-card featured">
+                    <h3>Review Autopilot</h3>
+                    <div class="price">$297<span>/mo</span></div>
+                    <ul>
+                        <li>Automatic review request sequences</li>
+                        <li>AI-powered review responses</li>
+                        <li>Google + Yelp monitoring</li>
+                        <li>Negative review interception</li>
+                        <li>Monthly reputation reports</li>
+                    </ul>
+                    <a href="#book" class="btn btn-primary" style="width:100%; text-align:center;">Most Popular</a>
+                </div>
+                <div class="solution-card">
+                    <h3>Lead Nurture Engine</h3>
+                    <div class="price">$397<span>/mo</span></div>
+                    <ul>
+                        <li>AI SMS + email follow-up sequences</li>
+                        <li>Lead scoring and prioritization</li>
+                        <li>Re-engagement of cold leads</li>
+                        <li>CRM integration</li>
+                        <li>Weekly performance dashboards</li>
+                    </ul>
+                    <a href="#book" class="btn btn-outline" style="width:100%; text-align:center;">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Real Results From Real Businesses</h2>
+            <p class="section-subtitle">See what happens when AI handles the busywork.</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"We were missing 30+ calls a month. NexusAI's receptionist caught every single one. Our bookings jumped 42% in the first month."</blockquote>
+                    <div class="author">Dr. Sarah Mitchell</div>
+                    <div class="role">Mitchell Family Dental, Austin TX</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"Went from 23 Google reviews to 89 in three months. The AI handles everything -- requests, responses, even flags issues before they become 1-star reviews."</blockquote>
+                    <div class="author">James Kowalski</div>
+                    <div class="role">Peak Comfort HVAC, Denver CO</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"The lead nurture system reactivated 47 cold leads in our CRM. 11 of them booked within 2 weeks. That is an ROI I have never seen from any marketing tool."</blockquote>
+                    <div class="author">Maria Santos</div>
+                    <div class="role">Desert Sun Realty, Phoenix AZ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div style="max-width: 700px; margin: 32px auto 0;">
+                <div class="faq-item open">
+                    <h3>How long does setup take?</h3>
+                    <p>Most systems are fully deployed within 48 hours. We handle everything -- you just approve the configuration and you are live.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do I need any technical knowledge?</h3>
+                    <p>Zero. We configure, deploy, and manage everything. You get a simple dashboard to see results, and our team handles all the tech.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I want to cancel?</h3>
+                    <p>No long-term contracts. Cancel anytime with 30 days notice. We are confident you will stay because the ROI speaks for itself.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is the AI going to sound robotic to my customers?</h3>
+                    <p>Not at all. Our AI is trained on your specific business, uses natural language, and most callers cannot tell the difference. We customize tone, terminology, and responses to match your brand.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What industries do you work with?</h3>
+                    <p>We specialize in dental practices, HVAC companies, and real estate agencies -- but our systems work for any local service business that relies on calls, reviews, and leads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="book">
+        <div class="container">
+            <h2>Ready to Stop Losing Customers?</h2>
+            <p>Book a free 15-minute AI audit. We will show you exactly how many calls, reviews, and leads you are leaving on the table.</p>
+            <a href="https://calendly.com" class="btn btn-accent" style="font-size:18px; padding:16px 48px;">Book Your Free AI Audit Now</a>
+            <p style="margin-top:16px; font-size:14px; opacity:0.7;">No commitment. No credit card. Just clarity.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom:8px;"><strong style="color:white;">NexusAI Solutions</strong></p>
+            <p>AI Automation for Local Businesses</p>
+            <p style="margin-top:16px;">&copy; 2026 NexusAI Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-item h3').forEach(function(item) {
+            item.addEventListener('click', function() {
+                this.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+
+</body>
+</html>
